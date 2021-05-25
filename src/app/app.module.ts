@@ -11,6 +11,8 @@ import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './ngrx-counter/counter.reducer';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,10 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    StoreModule.forRoot({ counter:counterReducer})
+    StoreModule.forRoot({ counter:counterReducer}),
+    StoreDevtoolsModule.instrument({
+      logOnly: environment.production
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
