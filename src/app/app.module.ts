@@ -8,11 +8,13 @@ import { CounterHeaderComponent } from './counter-header/counter-header.componen
 import { CounterOutputComponent } from './counter-output/counter-output.component';
 import { CounterCustomInputComponent } from './counter-custom-input/counter-custom-input.component'
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './ngrx-counter/counter.reducer';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
+import { PostListComponent } from './post-list/post-list.component';
+import { AppReducer } from './store/app.state';
+import { AddPostComponent } from './add-post/add-post.component';
 
 @NgModule({
   declarations: [
@@ -22,16 +24,19 @@ import { environment } from 'src/environments/environment';
     CounterHeaderComponent,
     CounterOutputComponent,
     CounterCustomInputComponent,
+    PostListComponent,
+    AddPostComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    StoreModule.forRoot({ counter:counterReducer}),
+    StoreModule.forRoot(AppReducer),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production
     }),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
