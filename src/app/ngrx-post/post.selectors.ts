@@ -6,3 +6,9 @@ const getAppStateList = createFeatureSelector<AppState>('posts');
 export const getAppStateListData = createSelector(getAppStateList, (state) => {
     return state.posts
 })
+
+
+export const getPostById = createSelector(getAppStateList, (states,props) => {
+    return  states.posts.find(x => x.id === +props.postId);
+})
+ 

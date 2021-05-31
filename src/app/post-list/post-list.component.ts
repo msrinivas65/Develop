@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { postInterfaceList } from '../modals/post.interface';
+import { DeletePost } from '../ngrx-post/post.actions';
 import { getAppStateListData } from '../ngrx-post/post.selectors';
 import { AppState } from '../store/app.state';
 
@@ -22,4 +23,9 @@ export class PostListComponent implements OnInit {
     })
   }
 
+  deletePostData(id) {
+    if (confirm('Are you sure you want to Delete?')) {
+      this.store.dispatch(DeletePost({ id }))
+    }
+  }
 }

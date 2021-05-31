@@ -4,9 +4,6 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { CounterHeaderComponent } from './counter-header/counter-header.component';
-import { CounterOutputComponent } from './counter-output/counter-output.component';
-import { CounterCustomInputComponent } from './counter-custom-input/counter-custom-input.component'
 import { StoreModule } from '@ngrx/store';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,17 +12,16 @@ import { environment } from 'src/environments/environment';
 import { PostListComponent } from './post-list/post-list.component';
 import { AppReducer } from './store/app.state';
 import { AddPostComponent } from './add-post/add-post.component';
+import { PostEditComponent } from './post-edit/post-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    CounterHeaderComponent,
-    CounterOutputComponent,
-    CounterCustomInputComponent,
     PostListComponent,
     AddPostComponent,
+    PostEditComponent,
   ],
   imports: [
     BrowserModule,
